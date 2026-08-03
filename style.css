@@ -118,3 +118,20 @@ tr:nth-child(even) {
   margin: 8px;
   border-radius: 6px;
 }
+.saved-matches {
+  padding: 40px 20px;
+}
+
+#matchList {
+  list-style: none;
+  padding: 0;
+}
+
+#matchList li {
+  background: #1f2937;
+  margin: 10px auto;
+  padding: 12px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+}
