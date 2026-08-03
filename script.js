@@ -42,3 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
     teamInput.value = "";
   });
 });
+const teamASelect = document.getElementById("teamA");
+const teamBSelect = document.getElementById("teamB");
+
+function updateTeamDropdowns() {
+  const teams = JSON.parse(localStorage.getItem("teams")) || [];
+
+  teamASelect.innerHTML = '<option value="">Select Team A</option>';
+  teamBSelect.innerHTML = '<option value="">Select Team B</option>';
+
+  teams.forEach(team => {
+    teamASelect.innerHTML += `<option value="${team}">${team}</option>`;
+    teamBSelect.innerHTML += `<option value="${team}">${team}</option>`;
+  });
+}
+
+updateTeamDropdowns();
