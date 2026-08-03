@@ -108,3 +108,13 @@ tr:nth-child(even) {
   padding: 10px;
   border-radius: 8px;
 }
+.match-manager {
+  padding: 40px 20px;
+}
+
+.match-manager select,
+.match-manager input {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 6px;
+}
