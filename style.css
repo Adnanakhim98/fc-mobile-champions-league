@@ -161,3 +161,6 @@ tr:nth-child(even) {
     font-weight:bold;
 }
 
+.hidden {
+    display: none;
+}
