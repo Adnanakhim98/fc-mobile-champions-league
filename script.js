@@ -105,3 +105,67 @@ saveMatchBtn.addEventListener("click", () => {
 
   alert("Match saved successfully!");
 });
+
+function updateStandings() {
+  const teams = JSON.parse(localStorage.getItem("teams")) || [];
+  const matches = JSON.parse(localStorage.getItem("matches")) || [];
+
+  let table = {};
+
+  teams.forEach(team => {
+    table[team] = {
+      played: 0,
+      won: 0,
+      draw: 0,
+      lost: 0,
+      points: 0
+    };
+  });
+
+  matches.forEach(match => {
+    const a = table[match.teamA];
+    const b = table[match.teamB];
+
+    if (!a || !b) return;
+
+    a.played++;
+    b.played++;
+
+    const scoreA = Number(match.scoreA);
+    const scoreB = Number(match.scoreB);
+
+    if (scoreA > scoreB) {
+      a.won++;
+      a.points += 3;
+      b.lost++;
+    } else if (scoreA < scoreB) {
+      b.won++;
+      b.points += 3;
+      a.lost++;
+    } else {
+      a.draw++;
+      b.draw++;
+      a.points++;
+      b.points++;
+    }
+  });
+
+  const tbody = document.getElementById("standingsBody");
+  tbody.innerHTML = "";
+
+  Object.keys(table)
+    .sort((x, y) => table[y].points - table[x].points)
+    .forEach(team => {
+      tbody.innerHTML += `
+      <tr>
+        <td>${team}</td>
+        <td>${table[team].played}</td>
+        <td>${table[team].won}</td>
+        <td>${table[team].draw}</td>
+        <td>${table[team].lost}</td>
+        <td>${table[team].points}</td>
+      </tr>`;
+    });
+}
+
+updateStandings();
