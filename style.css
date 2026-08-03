@@ -1,61 +1,110 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+  .standings {
+  padding: 40px 20px;
 }
 
-body{
-    background:#03142c;
-    color:#fff;
+table {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  border-collapse: collapse;
 }
 
-header{
-    text-align:center;
-    padding:25px;
-    background:linear-gradient(90deg,#003366,#0057b8);
+th,
+td {
+  border: 1px solid #444;
+  padding: 12px;
 }
 
-header h1{
-    font-size:30px;
+th {
+  background: #16a34a;
 }
 
-nav{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    background:#022048;
-    padding:15px;
-    flex-wrap:wrap;
+tr:nth-child(even) {
+  background: #1f2937;
+}
+  .fixtures {
+  padding: 40px 20px;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
+.match {
+  background: #1f2937;
+  width: 90%;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #16a34a;
 }
 
-.hero{
-    text-align:center;
-    padding:60px 20px;
+.match p {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.hero h2{
-    font-size:38px;
-    margin-bottom:15px;
+.match small {
+  color: #cbd5e1;
+}
+  .results {
+  padding: 40px 20px;
 }
 
-.hero p{
-    font-size:18px;
-    margin-bottom:25px;
+.result {
+  background: #1f2937;
+  width: 90%;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #f59e0b;
 }
 
-button{
-    background:#0a84ff;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
+.result p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.result small {
+  color: #cbd5e1;
+}
+  .top-scorers {
+  padding: 40px 20px;
+}
+
+.top-scorers h2 {
+  margin-bottom: 20px;
+}
+
+.top-scorers table {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  border-collapse: collapse;
+}
+  .team-manager {
+  padding: 40px 20px;
+}
+
+.team-manager input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 10px;
+}
+
+.team-manager button {
+  padding: 10px 18px;
+}
+
+#teamList {
+  list-style: none;
+  margin-top: 20px;
+}
+
+#teamList li {
+  background: #1f2937;
+  margin: 10px auto;
+  width: 300px;
+  padding: 10px;
+  border-radius: 8px;
 }
