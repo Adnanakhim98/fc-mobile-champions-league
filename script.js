@@ -241,3 +241,29 @@ loginBtn.addEventListener("click", () => {
     }
 
 });
+
+function checkAdmin() {
+
+    const loggedIn = localStorage.getItem("adminLoggedIn");
+
+    const teamManager = document.getElementById("teamManager");
+    const matchManager = document.getElementById("matchManager");
+    const scorerManager = document.getElementById("scorerManager");
+
+    if (loggedIn === "true") {
+
+        teamManager.classList.remove("hidden");
+        matchManager.classList.remove("hidden");
+        scorerManager.classList.remove("hidden");
+
+    } else {
+
+        teamManager.classList.add("hidden");
+        matchManager.classList.add("hidden");
+        scorerManager.classList.add("hidden");
+
+    }
+
+}
+
+checkAdmin();
