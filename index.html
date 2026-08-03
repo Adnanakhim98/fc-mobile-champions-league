@@ -257,7 +257,29 @@ tr:nth-child(even) {
 
 </section>
 
-<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const teamInput = document.getElementById("teamName");
+  const addTeamBtn = document.getElementById("addTeamBtn");
+  const teamList = document.getElementById("teamList");
+
+  addTeamBtn.addEventListener("click", () => {
+    const team = teamInput.value.trim();
+
+    if (team === "") {
+      alert("Please enter a team name.");
+      return;
+    }
+
+    const li = document.createElement("li");
+    li.textContent = team;
+
+    teamList.appendChild(li);
+    teamInput.value = "";
+  });
+});
+  
+</script>
 
 </body>
 </html>
