@@ -58,3 +58,50 @@ function updateTeamDropdowns() {
 }
 
 updateTeamDropdowns();
+const saveMatchBtn = document.getElementById("saveMatchBtn");
+const matchList = document.getElementById("matchList");
+
+function loadMatches() {
+  const matches = JSON.parse(localStorage.getItem("matches")) || [];
+  matchList.innerHTML = "";
+
+  matches.forEach(match => {
+    const li = document.createElement("li");
+    li.textContent = `${match.teamA} ${match.scoreA} - ${match.scoreB} ${match.teamB}`;
+    matchList.appendChild(li);
+  });
+}
+
+loadMatches();
+
+saveMatchBtn.addEventListener("click", () => {
+  const teamA = teamASelect.value;
+  const teamB = teamBSelect.value;
+  const scoreA = document.getElementById("scoreA").value;
+  const scoreB = document.getElementById("scoreB").value;
+
+  if (!teamA || !teamB) {
+    alert("Please select both teams.");
+    return;
+  }
+
+  if (teamA === teamB) {
+    alert("Please select different teams.");
+    return;
+  }
+
+  const matches = JSON.parse(localStorage.getItem("matches")) || [];
+
+  matches.push({
+    teamA,
+    teamB,
+    scoreA,
+    scoreB
+  });
+
+  localStorage.setItem("matches", JSON.stringify(matches));
+
+  loadMatches();
+
+  alert("Match saved successfully!");
+});
