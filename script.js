@@ -170,3 +170,51 @@ function updateStandings() {
 }
 
 updateStandings();
+
+const saveScorerBtn = document.getElementById("saveScorerBtn");
+
+function loadScorers() {
+    const scorers = JSON.parse(localStorage.getItem("scorers")) || [];
+
+    const tbody = document.getElementById("scorerTableBody");
+
+    tbody.innerHTML = "";
+
+    scorers
+        .sort((a, b) => b.goals - a.goals)
+        .forEach(player => {
+
+            tbody.innerHTML += `
+            <tr>
+                <td>${player.name}</td>
+                <td>${player.team}</td>
+                <td>${player.goals}</td>
+            </tr>`;
+        });
+}
+
+loadScorers();
+
+saveScorerBtn.addEventListener("click", () => {
+
+    const name = document.getElementById("playerName").value;
+    const team = document.getElementById("playerTeam").value;
+    const goals = Number(document.getElementById("playerGoals").value);
+
+    if (!name || !team) {
+        alert("Fill all fields");
+        return;
+    }
+
+    const scorers = JSON.parse(localStorage.getItem("scorers")) || [];
+
+    scorers.push({
+        name,
+        team,
+        goals
+    });
+
+    localStorage.setItem("scorers", JSON.stringify(scorers));
+
+    loadScorers();
+});
