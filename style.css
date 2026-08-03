@@ -145,3 +145,19 @@ tr:nth-child(even) {
     margin: 8px;
     border-radius: 6px;
 }
+
+  .admin-login{
+    padding:40px 20px;
+}
+
+.admin-login input{
+    padding:10px;
+    margin:8px;
+    border-radius:6px;
+}
+
+#loginStatus{
+    margin-top:15px;
+    font-weight:bold;
+}
+
