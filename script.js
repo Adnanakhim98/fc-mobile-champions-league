@@ -218,3 +218,26 @@ saveScorerBtn.addEventListener("click", () => {
 
     loadScorers();
 });
+
+const loginBtn = document.getElementById("loginBtn");
+
+loginBtn.addEventListener("click", () => {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if(username === "admin" && password === "12345"){
+
+        localStorage.setItem("adminLoggedIn","true");
+
+        document.getElementById("loginStatus").textContent =
+        "✅ Login Successful";
+
+    }else{
+
+        document.getElementById("loginStatus").textContent =
+        "❌ Wrong Username or Password";
+
+    }
+
+});
