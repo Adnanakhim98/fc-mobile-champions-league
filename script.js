@@ -73,6 +73,7 @@ function loadMatches() {
 }
 
 loadMatches();
+updateStandings();
 
 saveMatchBtn.addEventListener("click", () => {
   const teamA = teamASelect.value;
