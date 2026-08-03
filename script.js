@@ -229,6 +229,7 @@ loginBtn.addEventListener("click", () => {
     if(username === "admin" && password === "12345"){
 
         localStorage.setItem("adminLoggedIn","true");
+      checkAdmin();
 
         document.getElementById("loginStatus").textContent =
         "✅ Login Successful";
@@ -267,3 +268,21 @@ function checkAdmin() {
 }
 
 checkAdmin();
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", () => {
+
+    localStorage.removeItem("adminLoggedIn");
+
+   if (loggedIn === "true") {
+    logoutBtn.style.display = "inline-block";
+} else {
+    logoutBtn.style.display = "none";
+   }
+  checkAdmin();
+
+    document.getElementById("loginStatus").textContent =
+    "You have logged out.";
+
+});
